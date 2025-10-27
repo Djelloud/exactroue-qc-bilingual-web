@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { Truck, Shield, Wrench, Clock } from 'lucide-react';
-import heroImage from '@/assets/hero-rim.jpg';
+import heroImage from '@/assets/accueil-slide12.jpg';
 
 const Home = () => {
   const { t } = useLanguage();
@@ -59,7 +59,7 @@ const Home = () => {
 
       {/* Benefits Section */}
       <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
+        {/* <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
@@ -76,7 +76,7 @@ const Home = () => {
               );
             })}
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* CTA Section */}

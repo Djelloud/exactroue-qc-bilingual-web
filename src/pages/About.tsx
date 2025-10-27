@@ -1,7 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle2 } from 'lucide-react';
-import teamPhoto from '@/assets/team-photo.jpg';
+import teamPhoto from '@/assets/exactwheel01.jpg';
 
 const About = () => {
   const { t } = useLanguage();

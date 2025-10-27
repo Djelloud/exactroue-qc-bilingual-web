@@ -35,6 +35,19 @@ const translations = {
     // Services
     'services.title': 'Our Services',
     'services.subtitle': 'Comprehensive rim repair solutions for all vehicle types',
+    // Services intro (page content)
+    'services.intro.title': 'Exact Wheel Repair',
+    'services.intro.p1': 'Exact Wheel Repair specializes in refurbishing & refinishing of original equipment and aftermarket alloy wheels. Along with our complete wheel conditioning, we also offer custom refinishing of automotive wheels. Our goal is to provide the highest quality products, service & workmanship resulting in significant savings and guaranteed results for the customer. Exact Wheel Repair has been repairing & refinishing wheels since 2002, developing specialized equipment and acquiring state-of-the-art machinery.',
+    'services.intro.list_title': 'We offer:',
+    'services.list.straightening_detail': 'Wheel straightening (± 15/1000)',
+    'services.list.welding_detail': 'Welding (Tig)',
+    'services.list.paint_detail': 'Paint, OE, aftermarket, custom and powder coat',
+    'services.list.machining_detail': 'Machining conventional, CNC / Diamond Cuts',
+    'services.list.tire_detail': 'Tire installation & balancing',
+    'services.list.sales_detail': 'Sales of wheels supplies and tires',
+    'services.list.pickup_detail': 'Pick-up / Delivery (for commercial customers).',
+    'services.intro.p2': 'We are not a mobile repair service so are able to offer a superior product because of controlled conditions for painting and infra-red bake systems along with conventional and computer controlled (CNC) lathes. For our commercial clients, we do offer a pick-up & delivery service with a fast turn around time.',
+    'services.intro.p3': 'From cosmetic appearance to straightening, welding or machining, the team at Exact Wheel Repair evaluates every wheel individually to properly choose the correct method of restoration. We are committed to providing the highest quality of workmanship in the industry. Our ongoing testing and product upgrades ensure that we achieve a caliber of work that is unmatched by inferior products, machines and workmanship.',
     'services.straightening': 'Rim Straightening',
     'services.straightening.desc': 'Professional straightening of bent rims to restore perfect balance and safety.',
     'services.crack': 'Crack & Weld Repair',
@@ -81,12 +94,20 @@ const translations = {
     'contact.form.email': 'Email Address',
     'contact.form.phone': 'Phone Number',
     'contact.form.message': 'Message',
+    // Quote-specific fields
+    'contact.form.color': 'Wheel Color',
+    'contact.form.size': 'Wheel Size',
+    'contact.form.photos': 'Photos',
+    'contact.form.description': 'Description',
+    // Submission messages
+    'contact.form.success': 'Thanks! Your quote request has been sent.',
+    'contact.form.error': 'Something went wrong. Please try again.',
     'contact.form.submit': 'Send Message',
     'contact.service.area': 'Service Area',
     'contact.service.area.text': 'We proudly serve all of Quebec, with mobile service available throughout the greater Montreal region.',
     
     // Footer
-    'footer.tagline': 'Professional wheel repair and restoration services across Quebec',
+    'footer.tagline': 'Professional wheel repair and restoration services ',
     'footer.rights': 'All rights reserved.',
   },
   fr: {
@@ -115,6 +136,19 @@ const translations = {
     // Services
     'services.title': 'Nos Services',
     'services.subtitle': 'Solutions complètes de réparation de jantes pour tous types de véhicules',
+    // Services intro (page content)
+    'services.intro.title': 'Exact Wheel Repair',
+    'services.intro.p1': 'Exact Wheel Repair se spécialise dans la remise à neuf et la refinition des roues d’origine (OE) et du marché secondaire en alliage. En plus de notre conditionnement complet des roues, nous offrons aussi la refinition sur mesure des roues automobiles. Notre objectif est de fournir des produits, un service et une qualité d’exécution de premier ordre, entraînant des économies importantes et des résultats garantis pour le client. Exact Wheel Repair répare et refinit des roues depuis 2002, développant des équipements spécialisés et acquérant des machines à la fine pointe.',
+    'services.intro.list_title': 'Nous offrons :',
+    'services.list.straightening_detail': 'Redressage de roues (± 15/1000)',
+    'services.list.welding_detail': 'Soudure (TIG)',
+    'services.list.paint_detail': 'Peinture, OE, après‑marché, personnalisée et poudre',
+    'services.list.machining_detail': 'Usinage conventionnel, CNC / coupes diamant',
+    'services.list.tire_detail': 'Installation et balancement de pneus',
+    'services.list.sales_detail': 'Vente de roues, fournitures et pneus',
+    'services.list.pickup_detail': 'Cueillette / livraison (pour clients commerciaux).',
+    'services.intro.p2': 'Nous ne sommes pas un service mobile; nous pouvons donc offrir un produit supérieur grâce à des conditions contrôlées pour la peinture et des systèmes de cuisson infrarouge, ainsi qu’à des tours conventionnels et à commande numérique (CNC). Pour nos clients commerciaux, nous offrons un service de cueillette et livraison avec un délai d’exécution rapide.',
+    'services.intro.p3': 'De l’apparence cosmétique au redressage, à la soudure ou à l’usinage, l’équipe d’Exact Wheel Repair évalue chaque roue individuellement afin de choisir la bonne méthode de restauration. Nous nous engageons à offrir la plus haute qualité d’exécution de l’industrie. Nos tests continus et l’amélioration de nos produits nous permettent d’atteindre un niveau de travail inégalé par des produits, machines et exécutions inférieurs.',
     'services.straightening': 'Redressage de Jantes',
     'services.straightening.desc': 'Redressage professionnel des jantes courbées pour restaurer l\'équilibre parfait et la sécurité.',
     'services.crack': 'Réparation de Fissures et Soudure',
@@ -161,6 +195,14 @@ const translations = {
     'contact.form.email': 'Adresse Courriel',
     'contact.form.phone': 'Numéro de Téléphone',
     'contact.form.message': 'Message',
+    // Quote-specific fields
+    'contact.form.color': 'Couleur de la jante',
+    'contact.form.size': 'Taille de la jante',
+    'contact.form.photos': 'Photos',
+    'contact.form.description': 'Description',
+    // Submission messages
+    'contact.form.success': 'Merci! Votre demande de soumission a été envoyée.',
+    'contact.form.error': 'Une erreur est survenue. Veuillez réessayer.',
     'contact.form.submit': 'Envoyer le Message',
     'contact.service.area': 'Zone de Service',
     'contact.service.area.text': 'Nous sommes fiers de desservir tout le Québec, avec un service mobile disponible dans toute la grande région de Montréal.',

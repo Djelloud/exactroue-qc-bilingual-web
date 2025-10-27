@@ -1,24 +1,26 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card } from '@/components/ui/card';
-import before1 from '@/assets/gallery-before-1.jpg';
-import after1 from '@/assets/gallery-after-1.jpg';
-import before2 from '@/assets/gallery-before-2.jpg';
-import after2 from '@/assets/gallery-after-2.jpg';
+import img01 from '@/assets/exactwheel01.jpg';
+import img02 from '@/assets/exactwheel02.jpg';
+import img03 from '@/assets/exactwheel03.jpg';
+import img04 from '@/assets/exactwheel04.jpg';
+import img05 from '@/assets/exactwheel05.jpg';
+import img06 from '@/assets/exactwheel06.jpg';
+import img07 from '@/assets/exactwheel07.jpg';
+import img08 from '@/assets/exactwheel08.jpg';
 
 const Gallery = () => {
   const { t } = useLanguage();
 
   const galleryItems = [
-    {
-      before: before1,
-      after: after1,
-      category: t('services.curb'),
-    },
-    {
-      before: before2,
-      after: after2,
-      category: t('services.crack'),
-    },
+    { image: img01 },
+    { image: img02 },
+    { image: img03 },
+    { image: img04 },
+    { image: img05 },
+    { image: img06 },
+    { image: img07 },
+    { image: img08 },
   ];
 
   return (
@@ -33,36 +35,17 @@ const Gallery = () => {
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {galleryItems.map((item, index) => (
             <Card key={index} className="overflow-hidden border-border">
               <div className="p-4">
-                <h3 className="font-semibold text-lg mb-4 text-center">{item.category}</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <div className="relative aspect-square overflow-hidden rounded-lg">
-                      <img
-                        src={item.before}
-                        alt={`${t('gallery.before')} - ${item.category}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <p className="text-sm font-medium text-center text-muted-foreground">
-                      {t('gallery.before')}
-                    </p>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="relative aspect-square overflow-hidden rounded-lg">
-                      <img
-                        src={item.after}
-                        alt={`${t('gallery.after')} - ${item.category}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <p className="text-sm font-medium text-center text-primary">
-                      {t('gallery.after')}
-                    </p>
-                  </div>
+                <div className="relative aspect-square overflow-hidden rounded-lg">
+                  <img
+                    src={item.image}
+                    alt="Gallery image"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </Card>
