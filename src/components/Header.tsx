@@ -1,138 +1,102 @@
-import { Link, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
-import logo from '@/assets/exactroue-logo.png';
 
 const Header = () => {
   const { t, language, setLanguage } = useLanguage();
-  const location = useLocation();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const navItems = [
-    { path: '/', label: t('nav.home') },
-    { path: '/services', label: t('nav.services') },
-    { path: '/gallery', label: t('nav.gallery') },
-    { path: '/about', label: t('nav.about') },
-    { path: '/contact', label: t('nav.contact') },
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const links = [
+    { href: '#home', label: t('nav.home') },
+    { href: '#services', label: t('nav.services') },
+    { href: '#gallery', label: t('nav.gallery') },
+    { href: '#about', label: t('nav.about') },
+    { href: '#contact', label: t('nav.contact') },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
-
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border shadow-sm">
-      <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img src={logo} alt="ExactRoue" className="h-10 w-auto" />
-          </Link>
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-background/90 backdrop-blur-md border-b border-border' : 'bg-transparent'
+      }`}
+    >
+      <div className="container mx-auto px-6">
+        <div className="flex h-20 items-center justify-between">
+          <a href="#home" className="flex items-center gap-2">
+            <span className="inline-block w-8 h-8 rounded-full border-2 border-gold relative">
+              <span className="absolute inset-1.5 rounded-full border border-gold/60" />
+            </span>
+            <span className="font-display text-xl font-bold uppercase tracking-widest">
+              Exact <span className="text-gold">Wheel</span>
+            </span>
+          </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                  isActive(item.path)
-                    ? 'bg-accent text-accent-foreground'
-                    : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground'
-                }`}
+          <nav className="hidden lg:flex items-center gap-8">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className="font-display uppercase text-sm tracking-wider text-muted-foreground hover:text-gold transition-colors"
               >
-                {item.label}
-              </Link>
+                {l.label}
+              </a>
             ))}
           </nav>
 
-          {/* Right side: Language switcher + CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <div className="flex bg-secondary rounded-lg p-1">
+          <div className="hidden lg:flex items-center gap-5">
+            <div className="flex items-center text-xs font-display uppercase tracking-widest">
               <button
                 onClick={() => setLanguage('fr')}
-                className={`px-3 py-1 text-sm font-medium rounded-md transition-colors ${
-                  language === 'fr'
-                    ? 'bg-background text-foreground shadow-sm'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                FR
-              </button>
+                className={language === 'fr' ? 'text-gold' : 'text-muted-foreground hover:text-foreground'}
+              >FR</button>
+              <span className="mx-2 text-border">|</span>
               <button
                 onClick={() => setLanguage('en')}
-                className={`px-3 py-1 text-sm font-medium rounded-md transition-colors ${
-                  language === 'en'
-                    ? 'bg-background text-foreground shadow-sm'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                EN
-              </button>
+                className={language === 'en' ? 'text-gold' : 'text-muted-foreground hover:text-foreground'}
+              >EN</button>
             </div>
-            <Button asChild variant="default">
-              <Link to="/contact">{t('hero.cta')}</Link>
-            </Button>
+            <a
+              href="#contact"
+              className="bg-gold text-primary-foreground font-display uppercase tracking-wider text-sm font-semibold px-5 py-2.5 hover:bg-gold-bright transition-colors"
+            >
+              {t('nav.quote')}
+            </a>
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          <button className="lg:hidden text-foreground" onClick={() => setOpen(!open)} aria-label="Menu">
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <nav className="md:hidden py-4 space-y-2 border-t border-border">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                  isActive(item.path)
-                    ? 'bg-accent text-accent-foreground'
-                    : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground'
-                }`}
+        {open && (
+          <div className="lg:hidden pb-6 space-y-4 border-t border-border pt-4">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="block font-display uppercase tracking-wider text-muted-foreground hover:text-gold"
               >
-                {item.label}
-              </Link>
+                {l.label}
+              </a>
             ))}
-            <div className="flex items-center gap-2 px-4 pt-4">
-              <div className="flex bg-secondary rounded-lg p-1 flex-1">
-                <button
-                  onClick={() => setLanguage('fr')}
-                  className={`flex-1 px-3 py-1 text-sm font-medium rounded-md transition-colors ${
-                    language === 'fr'
-                      ? 'bg-background text-foreground shadow-sm'
-                      : 'text-muted-foreground'
-                  }`}
-                >
-                  FR
-                </button>
-                <button
-                  onClick={() => setLanguage('en')}
-                  className={`flex-1 px-3 py-1 text-sm font-medium rounded-md transition-colors ${
-                    language === 'en'
-                      ? 'bg-background text-foreground shadow-sm'
-                      : 'text-muted-foreground'
-                  }`}
-                >
-                  EN
-                </button>
-              </div>
+            <div className="flex items-center gap-4 pt-2">
+              <button onClick={() => setLanguage('fr')} className={`font-display uppercase ${language === 'fr' ? 'text-gold' : 'text-muted-foreground'}`}>FR</button>
+              <span className="text-border">|</span>
+              <button onClick={() => setLanguage('en')} className={`font-display uppercase ${language === 'en' ? 'text-gold' : 'text-muted-foreground'}`}>EN</button>
             </div>
-            <div className="px-4 pt-2">
-              <Button asChild variant="default" className="w-full">
-                <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
-                  {t('hero.cta')}
-                </Link>
-              </Button>
-            </div>
-          </nav>
+            <a href="#contact" onClick={() => setOpen(false)} className="block text-center bg-gold text-primary-foreground font-display uppercase tracking-wider text-sm font-semibold px-5 py-3">
+              {t('nav.quote')}
+            </a>
+          </div>
         )}
       </div>
     </header>

@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-type Language = 'en' | 'fr';
+type Language = 'fr' | 'en';
 
 interface LanguageContextType {
   language: Language;
@@ -9,177 +9,193 @@ interface LanguageContextType {
 }
 
 const translations = {
+  fr: {
+    'nav.home': 'Accueil',
+    'nav.services': 'Services',
+    'nav.gallery': 'Galerie',
+    'nav.about': 'À propos',
+    'nav.contact': 'Contact',
+    'nav.quote': 'Obtenir un devis',
+
+    'hero.badge': 'Montréal — Depuis 2002',
+    'hero.title': "Réparation de roues en alliage d'exception",
+    'hero.subtitle': 'Service professionnel pour particuliers, garages et concessionnaires.',
+    'hero.cta1': 'Obtenir un devis gratuit',
+    'hero.cta2': 'Voir notre galerie',
+
+    'process.eyebrow': 'Comment ça marche',
+    'process.title': 'Un processus simple, des résultats irréprochables',
+    'process.s1.t': 'Demandez un devis',
+    'process.s1.d': 'En ligne ou par téléphone, en moins de 24 heures.',
+    'process.s2.t': 'Déposez vos roues',
+    'process.s2.d': 'À notre atelier de Montréal ou via cueillette.',
+    'process.s3.t': 'Reconditionnement expert',
+    'process.s3.d': 'Réparation, redressement, polissage et finition.',
+    'process.s4.t': 'Récupérez comme neuves',
+    'process.s4.d': 'Cueillette à l’atelier ou livraison sur demande.',
+
+    'services.eyebrow': 'Nos services',
+    'services.title': 'Tout pour vos jantes, sous un même toit',
+    'services.s1.t': 'Réparation de roues fissurées',
+    'services.s1.d': 'Soudure TIG certifiée pour restaurer l’intégrité structurelle.',
+    'services.s2.t': 'Redressement de jantes',
+    'services.s2.d': 'Correction précise des déformations sur banc hydraulique.',
+    'services.s3.t': 'Polissage miroir',
+    'services.s3.d': 'Finition haute brillance pour un effet chrome éclatant.',
+    'services.s4.t': 'Powder coat / Peinture cuite',
+    'services.s4.d': 'Revêtement durable, cuit au four, toutes couleurs.',
+    'services.s5.t': 'Peinture liquide',
+    'services.s5.d': 'Tricoat, hypersilver et teintes personnalisées.',
+    'services.s6.t': 'Usinage numérique',
+    'services.s6.d': 'Tournage CNC pour finitions diamantées de précision.',
+    'services.s7.t': 'Vente de roues d’occasion',
+    'services.s7.d': 'Inventaire de roues OEM inspectées et garanties.',
+    'services.s8.t': 'Livraison Montréal / Laval',
+    'services.s8.d': 'Service de cueillette et livraison dans la région.',
+
+    'gallery.eyebrow': 'Galerie',
+    'gallery.title': 'Notre atelier en action',
+    'gallery.sub': 'Un aperçu des transformations que nous réalisons chaque jour.',
+
+    'stats.1': 'Roues réparées',
+    'stats.2': 'Ans d’expérience',
+    'stats.3': 'Clients actifs',
+    'stats.4': 'Taux de satisfaction',
+
+    'testi.eyebrow': 'Témoignages',
+    'testi.title': 'Ce que nos clients disent',
+    'testi.q1': 'Travail impeccable, mes jantes sont comme neuves. Service rapide et professionnel.',
+    'testi.q2': 'Le seul atelier à qui je confie les roues de ma flotte. Précis et fiables.',
+    'testi.q3': 'Polissage miroir parfait sur mes BBS. On voit la passion du métier.',
+    'testi.r1': 'Martin Bergeron — Garage Bergeron Auto, Montréal',
+    'testi.r2': 'Sophie Lemieux — Concession Lemieux Auto',
+    'testi.r3': 'Alexandre Côté — Particulier, Laval',
+
+    'coverage.eyebrow': 'Zone de service',
+    'coverage.title': 'Nous desservons Montréal et ses environs',
+    'coverage.sub': 'Service de cueillette et livraison disponible dans la grande région métropolitaine.',
+
+    'faq.eyebrow': 'FAQ',
+    'faq.title': 'Questions fréquentes',
+    'faq.q1': 'Quels sont vos délais de réparation ?',
+    'faq.a1': 'La majorité des réparations sont complétées en 24 à 72 heures selon la finition choisie.',
+    'faq.q2': 'Offrez-vous la livraison ?',
+    'faq.a2': 'Oui, nous offrons un service de cueillette et livraison à Montréal, Laval et la Rive-Sud.',
+    'faq.q3': 'Comment obtenir un devis ?',
+    'faq.a3': 'Remplissez notre formulaire en ligne avec quelques photos ou appelez-nous directement.',
+    'faq.q4': 'Quels types de finition proposez-vous ?',
+    'faq.a4': 'Powder coat, peinture liquide, hypersilver, tricoat, polissage miroir et finitions diamantées.',
+    'faq.q5': 'Travaillez-vous avec les garages et concessionnaires ?',
+    'faq.a5': 'Absolument. Nous offrons des tarifs préférentiels et une priorité de traitement aux professionnels.',
+
+    'cta.title': 'Prêt à redonner vie à vos roues ?',
+    'cta.sub': 'Plus de 500 clients nous font confiance à Montréal.',
+    'cta.btn': 'Demander un devis gratuit',
+
+    'footer.about': 'Spécialiste de la réparation de roues en alliage à Montréal depuis 2002.',
+    'footer.nav': 'Navigation',
+    'footer.contact': 'Coordonnées',
+    'footer.hours': 'Lun–Ven 8h–17h',
+    'footer.address': '1234 rue Industrielle, Montréal, QC',
+    'footer.rights': 'Tous droits réservés.',
+  },
   en: {
-    // Navigation
     'nav.home': 'Home',
     'nav.services': 'Services',
     'nav.gallery': 'Gallery',
     'nav.about': 'About',
     'nav.contact': 'Contact',
-    
-    // Hero
-    'hero.title': 'Expert Rim Repair & Restoration',
-    'hero.subtitle': 'Serving Quebec with fast, reliable, and affordable rim repair services.',
-    'hero.cta': 'Get a Free Quote',
-    
-    // Benefits
-    'benefits.mobile.title': '24/7 Mobile Service',
-    'benefits.mobile.desc': 'We come to you, anywhere in Quebec',
-    'benefits.warranty.title': 'Lifetime Warranty',
-    'benefits.warranty.desc': 'Quality guaranteed on all repairs',
-    'benefits.finish.title': 'Factory Finish Results',
-    'benefits.finish.desc': 'Professional refinishing like new',
-    'benefits.fast.title': 'Fast Turnaround',
-    'benefits.fast.desc': 'Most repairs completed same day',
-    
-    // Services
-    'services.title': 'Our Services',
-    'services.subtitle': 'Comprehensive rim repair solutions for all vehicle types',
-    'services.straightening': 'Rim Straightening',
-    'services.straightening.desc': 'Professional straightening of bent rims to restore perfect balance and safety.',
-    'services.crack': 'Crack & Weld Repair',
-    'services.crack.desc': 'Expert welding and structural repairs for cracked alloy wheels.',
-    'services.curb': 'Curb Rash & Scratch Repair',
-    'services.curb.desc': 'Complete restoration of cosmetic damage from curbs and road hazards.',
-    'services.powder': 'Powder Coating & Refinishing',
-    'services.powder.desc': 'Durable powder coating in any color for a lasting factory finish.',
-    'services.paint': 'Paint Matching',
-    'services.paint.desc': 'Precise color matching to your original wheel specifications.',
-    'services.mobile': 'Mobile Repair Service',
-    'services.mobile.desc': 'Convenient on-site repairs at your home or office.',
-    'services.alloy': 'Alloy & Chrome Repair',
-    'services.alloy.desc': 'Specialized repair for alloy and chrome wheel finishes.',
-    
-    // Gallery
-    'gallery.title': 'Our Work',
-    'gallery.subtitle': 'See the dramatic transformations we deliver every day',
-    'gallery.before': 'Before',
-    'gallery.after': 'After',
-    
-    // About
-    'about.title': 'About ExactRoue',
-    'about.subtitle': 'Quebec\'s trusted wheel repair experts',
-    'about.story': 'Our Story',
-    'about.story.text': 'ExactRoue was founded on a passion for automotive excellence and a commitment to customer satisfaction. We understand that your vehicle\'s wheels are more than just functional components—they\'re an investment in safety, performance, and style. Our team brings years of specialized experience in rim repair and refinishing, using industry-leading techniques and equipment to deliver results that exceed expectations.',
-    'about.mission': 'Our Mission',
-    'about.mission.text': 'We are dedicated to providing Quebec drivers with accessible, high-quality wheel repair services. Our mission is to restore your wheels to their original condition while offering the convenience, speed, and value you deserve.',
-    'about.values': 'Our Values',
-    'about.values.quality': 'Quality: Every repair meets our strict factory-finish standards',
-    'about.values.safety': 'Safety: Your safety is our top priority in every repair',
-    'about.values.satisfaction': 'Satisfaction: We\'re not done until you\'re completely satisfied',
-    
-    // Contact
-    'contact.title': 'Contact Us',
-    'contact.subtitle': 'Get in touch for a free quote or consultation',
-    'contact.info': 'Contact Information',
-    'contact.phone': 'Phone',
-    'contact.email': 'Email',
-    'contact.address': 'Address',
-    'contact.hours': 'Business Hours',
-    'contact.form.title': 'Send Us a Message',
-    'contact.form.name': 'Your Name',
-    'contact.form.email': 'Email Address',
-    'contact.form.phone': 'Phone Number',
-    'contact.form.message': 'Message',
-    'contact.form.submit': 'Send Message',
-    'contact.service.area': 'Service Area',
-    'contact.service.area.text': 'We proudly serve all of Quebec, with mobile service available throughout the greater Montreal region.',
-    
-    // Footer
-    'footer.tagline': 'Professional wheel repair and restoration services across Quebec',
+    'nav.quote': 'Get a quote',
+
+    'hero.badge': 'Montreal — Since 2002',
+    'hero.title': 'Exceptional alloy wheel repair',
+    'hero.subtitle': 'Professional service for drivers, garages and dealerships.',
+    'hero.cta1': 'Get a free quote',
+    'hero.cta2': 'View our gallery',
+
+    'process.eyebrow': 'How it works',
+    'process.title': 'A simple process, flawless results',
+    'process.s1.t': 'Request a quote',
+    'process.s1.d': 'Online or by phone, within 24 hours.',
+    'process.s2.t': 'Drop off your wheels',
+    'process.s2.d': 'At our Montreal shop or via pickup.',
+    'process.s3.t': 'Expert reconditioning',
+    'process.s3.d': 'Repair, straightening, polish and finishing.',
+    'process.s4.t': 'Pick them up like new',
+    'process.s4.d': 'Pickup at the shop or local delivery.',
+
+    'services.eyebrow': 'Our services',
+    'services.title': 'Everything for your wheels, under one roof',
+    'services.s1.t': 'Cracked wheel repair',
+    'services.s1.d': 'Certified TIG welding to restore structural integrity.',
+    'services.s2.t': 'Wheel straightening',
+    'services.s2.d': 'Precise correction on a hydraulic bench.',
+    'services.s3.t': 'Mirror polishing',
+    'services.s3.d': 'High-gloss finish with chrome-like brilliance.',
+    'services.s4.t': 'Powder coating',
+    'services.s4.d': 'Durable oven-cured coating in any color.',
+    'services.s5.t': 'Liquid paint',
+    'services.s5.d': 'Tricoat, hypersilver and custom colors.',
+    'services.s6.t': 'CNC machining',
+    'services.s6.d': 'Precision diamond-cut finishes via CNC lathe.',
+    'services.s7.t': 'Used wheel sales',
+    'services.s7.d': 'Inspected, warrantied OEM wheel inventory.',
+    'services.s8.t': 'Montreal / Laval delivery',
+    'services.s8.d': 'Pickup and delivery throughout the region.',
+
+    'gallery.eyebrow': 'Gallery',
+    'gallery.title': 'Our workshop in action',
+    'gallery.sub': 'A glimpse of the transformations we deliver every day.',
+
+    'stats.1': 'Wheels repaired',
+    'stats.2': 'Years of experience',
+    'stats.3': 'Active clients',
+    'stats.4': 'Satisfaction rate',
+
+    'testi.eyebrow': 'Testimonials',
+    'testi.title': 'What our clients say',
+    'testi.q1': 'Flawless work, my wheels look brand new. Fast and professional service.',
+    'testi.q2': 'The only shop I trust with my fleet wheels. Precise and reliable.',
+    'testi.q3': 'Perfect mirror polish on my BBS. True craftsmanship.',
+    'testi.r1': 'Martin Bergeron — Bergeron Auto Garage, Montreal',
+    'testi.r2': 'Sophie Lemieux — Lemieux Auto Dealership',
+    'testi.r3': 'Alexandre Côté — Private client, Laval',
+
+    'coverage.eyebrow': 'Service area',
+    'coverage.title': 'We serve Montreal and surrounding areas',
+    'coverage.sub': 'Pickup and delivery available throughout the metropolitan area.',
+
+    'faq.eyebrow': 'FAQ',
+    'faq.title': 'Frequently asked questions',
+    'faq.q1': 'What are your turnaround times?',
+    'faq.a1': 'Most repairs are completed within 24 to 72 hours depending on the chosen finish.',
+    'faq.q2': 'Do you offer delivery?',
+    'faq.a2': 'Yes, we offer pickup and delivery in Montreal, Laval and the South Shore.',
+    'faq.q3': 'How do I get a quote?',
+    'faq.a3': 'Fill in our online form with a few photos or call us directly.',
+    'faq.q4': 'What finishes do you offer?',
+    'faq.a4': 'Powder coat, liquid paint, hypersilver, tricoat, mirror polish and diamond-cut.',
+    'faq.q5': 'Do you work with garages and dealerships?',
+    'faq.a5': 'Absolutely. We offer preferred pricing and priority service to professionals.',
+
+    'cta.title': 'Ready to bring your wheels back to life?',
+    'cta.sub': 'Over 500 clients trust us in Montreal.',
+    'cta.btn': 'Request a free quote',
+
+    'footer.about': 'Alloy wheel repair specialist in Montreal since 2002.',
+    'footer.nav': 'Navigation',
+    'footer.contact': 'Contact',
+    'footer.hours': 'Mon–Fri 8am–5pm',
+    'footer.address': '1234 Industrial St, Montreal, QC',
     'footer.rights': 'All rights reserved.',
   },
-  fr: {
-    // Navigation
-    'nav.home': 'Accueil',
-    'nav.services': 'Services',
-    'nav.gallery': 'Galerie',
-    'nav.about': 'À Propos',
-    'nav.contact': 'Contact',
-    
-    // Hero
-    'hero.title': 'Réparation et Restauration de Jantes Expertes',
-    'hero.subtitle': 'Nous desservons le Québec avec des services de réparation de jantes rapides, fiables et abordables.',
-    'hero.cta': 'Obtenez une Soumission Gratuite',
-    
-    // Benefits
-    'benefits.mobile.title': 'Service Mobile 24/7',
-    'benefits.mobile.desc': 'Nous venons à vous, partout au Québec',
-    'benefits.warranty.title': 'Garantie à Vie',
-    'benefits.warranty.desc': 'Qualité garantie sur toutes les réparations',
-    'benefits.finish.title': 'Résultats Finition d\'Usine',
-    'benefits.finish.desc': 'Refinition professionnelle comme neuf',
-    'benefits.fast.title': 'Service Rapide',
-    'benefits.fast.desc': 'La plupart des réparations le jour même',
-    
-    // Services
-    'services.title': 'Nos Services',
-    'services.subtitle': 'Solutions complètes de réparation de jantes pour tous types de véhicules',
-    'services.straightening': 'Redressage de Jantes',
-    'services.straightening.desc': 'Redressage professionnel des jantes courbées pour restaurer l\'équilibre parfait et la sécurité.',
-    'services.crack': 'Réparation de Fissures et Soudure',
-    'services.crack.desc': 'Soudure experte et réparations structurelles pour jantes en alliage fissurées.',
-    'services.curb': 'Réparation de Rayures et Éraflures',
-    'services.curb.desc': 'Restauration complète des dommages cosmétiques causés par les bordures et les dangers de la route.',
-    'services.powder': 'Revêtement en Poudre et Finition',
-    'services.powder.desc': 'Revêtement en poudre durable dans n\'importe quelle couleur pour une finition d\'usine durable.',
-    'services.paint': 'Correspondance de Peinture',
-    'services.paint.desc': 'Correspondance de couleur précise aux spécifications originales de vos roues.',
-    'services.mobile': 'Service de Réparation Mobile',
-    'services.mobile.desc': 'Réparations pratiques sur place à votre domicile ou bureau.',
-    'services.alloy': 'Réparation d\'Alliage et de Chrome',
-    'services.alloy.desc': 'Réparation spécialisée pour les finitions de roues en alliage et chrome.',
-    
-    // Gallery
-    'gallery.title': 'Notre Travail',
-    'gallery.subtitle': 'Découvrez les transformations spectaculaires que nous réalisons chaque jour',
-    'gallery.before': 'Avant',
-    'gallery.after': 'Après',
-    
-    // About
-    'about.title': 'À Propos d\'ExactRoue',
-    'about.subtitle': 'Les experts en réparation de roues de confiance du Québec',
-    'about.story': 'Notre Histoire',
-    'about.story.text': 'ExactRoue a été fondé sur une passion pour l\'excellence automobile et un engagement envers la satisfaction client. Nous comprenons que les roues de votre véhicule sont plus que de simples composants fonctionnels—ce sont un investissement dans la sécurité, la performance et le style. Notre équipe apporte des années d\'expérience spécialisée en réparation et refinition de jantes, utilisant des techniques et équipements de pointe pour livrer des résultats qui dépassent les attentes.',
-    'about.mission': 'Notre Mission',
-    'about.mission.text': 'Nous sommes dédiés à fournir aux conducteurs québécois des services de réparation de roues accessibles et de haute qualité. Notre mission est de restaurer vos roues à leur condition originale tout en offrant la commodité, la rapidité et la valeur que vous méritez.',
-    'about.values': 'Nos Valeurs',
-    'about.values.quality': 'Qualité : Chaque réparation respecte nos normes strictes de finition d\'usine',
-    'about.values.safety': 'Sécurité : Votre sécurité est notre priorité absolue dans chaque réparation',
-    'about.values.satisfaction': 'Satisfaction : Nous n\'avons pas terminé tant que vous n\'êtes pas complètement satisfait',
-    
-    // Contact
-    'contact.title': 'Contactez-Nous',
-    'contact.subtitle': 'Contactez-nous pour une soumission gratuite ou une consultation',
-    'contact.info': 'Informations de Contact',
-    'contact.phone': 'Téléphone',
-    'contact.email': 'Courriel',
-    'contact.address': 'Adresse',
-    'contact.hours': 'Heures d\'Ouverture',
-    'contact.form.title': 'Envoyez-Nous un Message',
-    'contact.form.name': 'Votre Nom',
-    'contact.form.email': 'Adresse Courriel',
-    'contact.form.phone': 'Numéro de Téléphone',
-    'contact.form.message': 'Message',
-    'contact.form.submit': 'Envoyer le Message',
-    'contact.service.area': 'Zone de Service',
-    'contact.service.area.text': 'Nous sommes fiers de desservir tout le Québec, avec un service mobile disponible dans toute la grande région de Montréal.',
-    
-    // Footer
-    'footer.tagline': 'Services professionnels de réparation et restauration de roues à travers le Québec',
-    'footer.rights': 'Tous droits réservés.',
-  },
-};
+} as const;
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('fr'); // Default to French for Quebec
-
-  const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations.en] || key;
-  };
-
+  const [language, setLanguage] = useState<Language>('fr');
+  const t = (key: string) => (translations[language] as Record<string, string>)[key] || key;
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>
       {children}
@@ -188,9 +204,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 };
 
 export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (context === undefined) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
-  return context;
+  const ctx = useContext(LanguageContext);
+  if (!ctx) throw new Error('useLanguage must be used within a LanguageProvider');
+  return ctx;
 };
