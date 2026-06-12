@@ -16,14 +16,14 @@ const App = () => (
       <LanguageProvider>
         <Toaster />
         <Sonner />
-        <HashRouter>
+        <BrowserRouter>
           <Layout>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
-        </HashRouter>
+        </BrowserRouter>
       </LanguageProvider>
     </TooltipProvider>
   </QueryClientProvider>
