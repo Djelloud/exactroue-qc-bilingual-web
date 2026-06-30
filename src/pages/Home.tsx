@@ -49,7 +49,7 @@ const Home = () => {
         <div className="relative container mx-auto px-6 py-32">
           <div className="max-w-3xl animate-fade-in">
             <div className="inline-flex items-center gap-3 border border-gold/40 px-4 py-2 mb-8">
-              <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-red animate-pulse" />
               <span className="font-display uppercase tracking-[0.25em] text-xs text-gold">
                 {t('hero.badge')}
               </span>
@@ -83,7 +83,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {['s1', 's2', 's3', 's4'].map((k, i) => (
               <div key={k} className="reveal relative" style={{ transitionDelay: `${i * 100}ms` }}>
-                <div className="w-16 h-16 rounded-full border-2 border-gold grid place-items-center font-display text-2xl font-bold text-gold mb-6">
+                <div className="w-16 h-16 rounded-full border-2 border-red grid place-items-center font-display text-2xl font-bold text-red mb-6">
                   {String(i + 1).padStart(2, '0')}
                 </div>
                 <h3 className="font-display uppercase text-xl font-bold mb-3">{t(`process.${k}.t`)}</h3>
@@ -108,7 +108,7 @@ const Home = () => {
                 className="group bg-card p-8 hover:bg-background transition-all relative reveal"
                 style={{ transitionDelay: `${i * 60}ms` }}
               >
-                <span className="absolute top-0 left-0 right-0 h-px bg-gold scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
+                <span className="absolute top-0 left-0 right-0 h-px bg-red scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
                 <Icon className="w-8 h-8 text-gold mb-6" strokeWidth={1.5} />
                 <h3 className="font-display uppercase text-lg font-bold mb-3 leading-tight">{t(`services.${k}.t`)}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{t(`services.${k}.d`)}</p>
@@ -210,8 +210,8 @@ const Home = () => {
               <svg viewBox="0 0 400 400" className="w-full h-full">
                 <defs>
                   <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="hsl(44 53% 54%)" stopOpacity="0.3" />
-                    <stop offset="100%" stopColor="hsl(44 53% 54%)" stopOpacity="0" />
+                    <stop offset="0%" stopColor="hsl(var(--red))" stopOpacity="0.25" />
+                    <stop offset="100%" stopColor="hsl(var(--red))" stopOpacity="0" />
                   </radialGradient>
                 </defs>
                 {Array.from({ length: 12 }).map((_, i) => (
@@ -227,7 +227,7 @@ const Home = () => {
                   [180, 90, 'Rive-Nord', 4],
                 ].map(([x, y, name, r]: any, i) => (
                   <g key={i}>
-                    <circle cx={x} cy={y} r={r} fill="hsl(44 53% 54%)">
+                    <circle cx={x} cy={y} r={r} fill="hsl(var(--red))">
                       <animate attributeName="r" values={`${r};${r + 4};${r}`} dur="2.5s" repeatCount="indefinite" begin={`${i * 0.3}s`} />
                     </circle>
                     <text x={x + 12} y={y + 4} fill="hsl(0 0% 80%)" fontSize="11" fontFamily="Barlow Condensed" letterSpacing="1">

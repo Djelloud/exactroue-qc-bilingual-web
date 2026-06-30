@@ -12,7 +12,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <span className="inline-block w-8 h-8 rounded-full border-2 border-gold relative">
-                <span className="absolute inset-1.5 rounded-full border border-gold/60" />
+                <span className="absolute inset-1.5 rounded-full bg-red border border-red-bright" />
               </span>
               <span className="font-display text-xl font-bold uppercase tracking-widest">
                 Exact <span className="text-gold">Wheel</span>
@@ -66,9 +66,9 @@ const Footer = () => {
         <div className="border-t border-border mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <p>© {year} Exact Wheel Repair. {t('footer.rights')}</p>
           <div className="flex items-center font-display uppercase tracking-widest">
-            <button onClick={() => setLanguage('fr')} className={language === 'fr' ? 'text-gold' : 'hover:text-foreground'}>FR</button>
+            <button onClick={() => setLanguage('fr')} className={language === 'fr' ? 'text-red' : 'hover:text-foreground'}>FR</button>
             <span className="mx-2">|</span>
-            <button onClick={() => setLanguage('en')} className={language === 'en' ? 'text-gold' : 'hover:text-foreground'}>EN</button>
+            <button onClick={() => setLanguage('en')} className={language === 'en' ? 'text-red' : 'hover:text-foreground'}>EN</button>
           </div>
         </div>
       </div>

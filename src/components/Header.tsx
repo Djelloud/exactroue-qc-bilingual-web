@@ -32,7 +32,7 @@ const Header = () => {
         <div className="flex h-20 items-center justify-between">
           <a href="#home" className="flex items-center gap-2">
             <span className="inline-block w-8 h-8 rounded-full border-2 border-gold relative">
-              <span className="absolute inset-1.5 rounded-full border border-gold/60" />
+              <span className="absolute inset-1.5 rounded-full bg-red border border-red-bright" />
             </span>
             <span className="font-display text-xl font-bold uppercase tracking-widest">
               Exact <span className="text-gold">Wheel</span>
@@ -55,12 +55,12 @@ const Header = () => {
             <div className="flex items-center text-xs font-display uppercase tracking-widest">
               <button
                 onClick={() => setLanguage('fr')}
-                className={language === 'fr' ? 'text-gold' : 'text-muted-foreground hover:text-foreground'}
+                className={language === 'fr' ? 'text-red' : 'text-muted-foreground hover:text-foreground'}
               >FR</button>
               <span className="mx-2 text-border">|</span>
               <button
                 onClick={() => setLanguage('en')}
-                className={language === 'en' ? 'text-gold' : 'text-muted-foreground hover:text-foreground'}
+                className={language === 'en' ? 'text-red' : 'text-muted-foreground hover:text-foreground'}
               >EN</button>
             </div>
             <a
@@ -89,9 +89,9 @@ const Header = () => {
               </a>
             ))}
             <div className="flex items-center gap-4 pt-2">
-              <button onClick={() => setLanguage('fr')} className={`font-display uppercase ${language === 'fr' ? 'text-gold' : 'text-muted-foreground'}`}>FR</button>
+              <button onClick={() => setLanguage('fr')} className={`font-display uppercase ${language === 'fr' ? 'text-red' : 'text-muted-foreground'}`}>FR</button>
               <span className="text-border">|</span>
-              <button onClick={() => setLanguage('en')} className={`font-display uppercase ${language === 'en' ? 'text-gold' : 'text-muted-foreground'}`}>EN</button>
+              <button onClick={() => setLanguage('en')} className={`font-display uppercase ${language === 'en' ? 'text-red' : 'text-muted-foreground'}`}>EN</button>
             </div>
             <a href="/devis" onClick={() => setOpen(false)} className="block text-center bg-gold text-primary-foreground font-display uppercase tracking-wider text-sm font-semibold px-5 py-3">
               {t('nav.quote')}
