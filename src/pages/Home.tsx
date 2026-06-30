@@ -49,7 +49,7 @@ const Home = () => {
         <div className="relative container mx-auto px-6 py-32">
           <div className="max-w-3xl animate-fade-in">
             <div className="inline-flex items-center gap-3 border border-gold/40 px-4 py-2 mb-8">
-              <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-red animate-pulse" />
               <span className="font-display uppercase tracking-[0.25em] text-xs text-gold">
                 {t('hero.badge')}
               </span>
