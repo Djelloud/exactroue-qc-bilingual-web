@@ -210,8 +210,8 @@ const Home = () => {
               <svg viewBox="0 0 400 400" className="w-full h-full">
                 <defs>
                   <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="hsl(44 53% 54%)" stopOpacity="0.3" />
-                    <stop offset="100%" stopColor="hsl(44 53% 54%)" stopOpacity="0" />
+                    <stop offset="0%" stopColor="hsl(var(--red))" stopOpacity="0.25" />
+                    <stop offset="100%" stopColor="hsl(var(--red))" stopOpacity="0" />
                   </radialGradient>
                 </defs>
                 {Array.from({ length: 12 }).map((_, i) => (
