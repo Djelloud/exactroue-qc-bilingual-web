@@ -29,6 +29,7 @@ export default {
         popover: { DEFAULT: "hsl(var(--popover))", foreground: "hsl(var(--popover-foreground))" },
         card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
         gold: { DEFAULT: "hsl(var(--gold))", bright: "hsl(var(--gold-bright))" },
+        red: { DEFAULT: "hsl(var(--red))", bright: "hsl(var(--red-bright))" },
       },
       borderRadius: {
         lg: "var(--radius)",
