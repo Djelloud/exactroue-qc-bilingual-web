@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Layout from "@/components/Layout";
 import Home from "./pages/Home";
+import Devis from "./pages/Devis";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
