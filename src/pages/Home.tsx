@@ -227,7 +227,7 @@ const Home = () => {
                   [180, 90, 'Rive-Nord', 4],
                 ].map(([x, y, name, r]: any, i) => (
                   <g key={i}>
-                    <circle cx={x} cy={y} r={r} fill="hsl(44 53% 54%)">
+                    <circle cx={x} cy={y} r={r} fill="hsl(var(--red))">
                       <animate attributeName="r" values={`${r};${r + 4};${r}`} dur="2.5s" repeatCount="indefinite" begin={`${i * 0.3}s`} />
                     </circle>
                     <text x={x + 12} y={y + 4} fill="hsl(0 0% 80%)" fontSize="11" fontFamily="Barlow Condensed" letterSpacing="1">
