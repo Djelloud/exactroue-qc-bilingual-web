@@ -57,7 +57,7 @@ const Footer = () => {
               <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-gold" /><a href="tel:+15141234567" className="hover:text-gold">(514) 123-4567</a></li>
               <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-gold" /><a href="mailto:info@exactwheel.ca" className="hover:text-gold">info@exactwheel.ca</a></li>
             </ul>
-            <a href="#contact" className="inline-block bg-gold text-primary-foreground font-display uppercase tracking-wider text-sm font-semibold px-5 py-2.5 hover:bg-gold-bright transition-colors">
+            <a href="/devis" className="inline-block bg-gold text-primary-foreground font-display uppercase tracking-wider text-sm font-semibold px-5 py-2.5 hover:bg-gold-bright transition-colors">
               {t('nav.quote')}
             </a>
           </div>

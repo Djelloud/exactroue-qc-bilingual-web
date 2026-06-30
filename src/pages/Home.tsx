@@ -62,7 +62,7 @@ const Home = () => {
               {t('hero.subtitle')}
             </p>
             <div className="flex flex-wrap gap-4">
-              <a href="#contact" className="group inline-flex items-center gap-2 bg-gold text-primary-foreground font-display uppercase tracking-wider text-sm font-semibold px-7 py-4 hover:bg-gold-bright transition-colors">
+              <a href="/devis" className="group inline-flex items-center gap-2 bg-gold text-primary-foreground font-display uppercase tracking-wider text-sm font-semibold px-7 py-4 hover:bg-gold-bright transition-colors">
                 {t('hero.cta1')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
               <a href="#gallery" className="inline-flex items-center gap-2 border border-border hover:border-gold hover:text-gold font-display uppercase tracking-wider text-sm font-semibold px-7 py-4 transition-colors">

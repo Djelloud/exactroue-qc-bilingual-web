@@ -64,7 +64,7 @@ const Header = () => {
               >EN</button>
             </div>
             <a
-              href="#contact"
+              href="/devis"
               className="bg-gold text-primary-foreground font-display uppercase tracking-wider text-sm font-semibold px-5 py-2.5 hover:bg-gold-bright transition-colors"
             >
               {t('nav.quote')}
@@ -93,7 +93,7 @@ const Header = () => {
               <span className="text-border">|</span>
               <button onClick={() => setLanguage('en')} className={`font-display uppercase ${language === 'en' ? 'text-gold' : 'text-muted-foreground'}`}>EN</button>
             </div>
-            <a href="#contact" onClick={() => setOpen(false)} className="block text-center bg-gold text-primary-foreground font-display uppercase tracking-wider text-sm font-semibold px-5 py-3">
+            <a href="/devis" onClick={() => setOpen(false)} className="block text-center bg-gold text-primary-foreground font-display uppercase tracking-wider text-sm font-semibold px-5 py-3">
               {t('nav.quote')}
             </a>
           </div>
