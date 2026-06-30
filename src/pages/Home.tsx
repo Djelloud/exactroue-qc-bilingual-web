@@ -3,10 +3,18 @@ import Counter from '@/components/Counter';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Star, ArrowRight, Wrench, Hammer, Sparkles, Paintbrush, Droplet, Cog, ShoppingCart, Truck, MapPin } from 'lucide-react';
 import hero from '@/assets/hero-wheel-dark.jpg';
-import g1 from '@/assets/atelier-1.jpg';
-import g2 from '@/assets/atelier-2.jpg';
-import g3 from '@/assets/atelier-3.jpg';
-import g4 from '@/assets/atelier-4.jpg';
+import p1 from '@/assets/old-site/service-slide01.jpg';
+import p2 from '@/assets/old-site/exactwheel01.jpg';
+import p3 from '@/assets/old-site/exactwheel04.jpg';
+import p4 from '@/assets/old-site/service-slide03.jpg';
+import p5 from '@/assets/old-site/service-slide02.jpg';
+import p6 from '@/assets/old-site/exactwheel06.jpg';
+import p7 from '@/assets/old-site/exactwheel05.jpg';
+import p8 from '@/assets/old-site/service-slide04.jpg';
+import p9 from '@/assets/old-site/exactwheel02.jpg';
+import p10 from '@/assets/old-site/exactwheel03.jpg';
+import p11 from '@/assets/old-site/exactwheel07.jpg';
+import p12 from '@/assets/old-site/exactwheel08.jpg';
 
 const Eyebrow = ({ children }: { children: React.ReactNode }) => (
   <div className="inline-flex items-center gap-3 font-display uppercase tracking-[0.3em] text-xs text-gold mb-4">
@@ -128,7 +136,7 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 reveal">
-            {[g1, g2, g3, g4, g3, g2, g4, g1].map((src, i) => (
+            {[p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12].map((src, i) => (
               <div
                 key={i}
                 className={`relative overflow-hidden bg-card group ${i % 5 === 0 ? 'row-span-2 aspect-[3/4]' : 'aspect-square'}`}
