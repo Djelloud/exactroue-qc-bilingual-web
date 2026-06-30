@@ -274,7 +274,7 @@ const Home = () => {
             <span className="text-gold">{t('cta.title')}</span>
           </h2>
           <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">{t('cta.sub')}</p>
-          <a href="mailto:info@exactwheel.ca" className="group inline-flex items-center gap-2 bg-gold text-primary-foreground font-display uppercase tracking-wider text-sm font-semibold px-8 py-4 hover:bg-gold-bright transition-colors">
+          <a href="/devis" className="group inline-flex items-center gap-2 bg-gold text-primary-foreground font-display uppercase tracking-wider text-sm font-semibold px-8 py-4 hover:bg-gold-bright transition-colors">
             {t('cta.btn')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
