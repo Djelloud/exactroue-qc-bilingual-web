@@ -108,7 +108,7 @@ const Home = () => {
                 className="group bg-card p-8 hover:bg-background transition-all relative reveal"
                 style={{ transitionDelay: `${i * 60}ms` }}
               >
-                <span className="absolute top-0 left-0 right-0 h-px bg-gold scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
+                <span className="absolute top-0 left-0 right-0 h-px bg-red scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
                 <Icon className="w-8 h-8 text-gold mb-6" strokeWidth={1.5} />
                 <h3 className="font-display uppercase text-lg font-bold mb-3 leading-tight">{t(`services.${k}.t`)}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{t(`services.${k}.d`)}</p>
