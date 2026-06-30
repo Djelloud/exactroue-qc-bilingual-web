@@ -83,7 +83,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {['s1', 's2', 's3', 's4'].map((k, i) => (
               <div key={k} className="reveal relative" style={{ transitionDelay: `${i * 100}ms` }}>
-                <div className="w-16 h-16 rounded-full border-2 border-gold grid place-items-center font-display text-2xl font-bold text-gold mb-6">
+                <div className="w-16 h-16 rounded-full border-2 border-red grid place-items-center font-display text-2xl font-bold text-red mb-6">
                   {String(i + 1).padStart(2, '0')}
                 </div>
                 <h3 className="font-display uppercase text-xl font-bold mb-3">{t(`process.${k}.t`)}</h3>
