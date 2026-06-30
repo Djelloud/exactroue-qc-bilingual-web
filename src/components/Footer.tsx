@@ -66,9 +66,9 @@ const Footer = () => {
         <div className="border-t border-border mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <p>© {year} Exact Wheel Repair. {t('footer.rights')}</p>
           <div className="flex items-center font-display uppercase tracking-widest">
-            <button onClick={() => setLanguage('fr')} className={language === 'fr' ? 'text-gold' : 'hover:text-foreground'}>FR</button>
+            <button onClick={() => setLanguage('fr')} className={language === 'fr' ? 'text-red' : 'hover:text-foreground'}>FR</button>
             <span className="mx-2">|</span>
-            <button onClick={() => setLanguage('en')} className={language === 'en' ? 'text-gold' : 'hover:text-foreground'}>EN</button>
+            <button onClick={() => setLanguage('en')} className={language === 'en' ? 'text-red' : 'hover:text-foreground'}>EN</button>
           </div>
         </div>
       </div>
