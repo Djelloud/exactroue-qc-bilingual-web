@@ -1,4 +1,3 @@
-import { serve } from 'https://esm.sh/@supabase/functions-js@2/edge_runtime.d.ts';
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
 function escapeHtml(str: string | null | undefined): string {
@@ -43,7 +42,7 @@ function timingSafeEqual(a: string, b: string): boolean {
   return result === 0;
 }
 
-serve(async (req) => {
+Deno.serve(async (req) => {
   // CORS preflight
   if (req.method === 'OPTIONS') {
     return new Response(null, {
