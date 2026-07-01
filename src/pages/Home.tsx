@@ -139,7 +139,7 @@ const Home = () => {
             {[p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12].map((src, i) => (
               <div
                 key={i}
-                className={`relative overflow-hidden bg-card group ${i % 5 === 0 ? 'row-span-2 aspect-[3/4]' : 'aspect-square'}`}
+                className="relative overflow-hidden bg-card group aspect-square"
               >
                 <img src={src} alt="" loading="lazy" className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
                 <div className="absolute inset-0 bg-background/30 group-hover:bg-transparent transition-colors" />
