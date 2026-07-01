@@ -4,7 +4,7 @@ This guide configures a database webhook so that every new quote request automat
 
 ## Step-by-step
 
-1. Go to the Supabase dashboard: https://supabase.com/dashboard/project/wjdvveoxxamhdkdwtipf
+1. Go to the Supabase dashboard: https://supabase.com/dashboard/project/nyhhufcwdwwhuuwtifdl
 2. In the left sidebar, click **Database → Webhooks**
 3. Click **Create a new webhook**
 4. Fill in the fields exactly as follows:
@@ -12,7 +12,7 @@ This guide configures a database webhook so that every new quote request automat
    - **Table:** `quote_requests`
    - **Events:** check **Insert** only
    - **HTTP Method:** `POST`
-   - **URL:** `https://wjdvveoxxamhdkdwtipf.supabase.co/functions/v1/send-quote-email`
+   - **URL:** `https://nyhhufcwdwwhuuwtifdl.supabase.co/functions/v1/send-quote-email`
    - **Timeout:** `1000` ms (or leave the default)
    - **JWT verification:** **ON** — this is critical. It makes Supabase auto-append the service-role key in the `Authorization` header, which the edge function checks to prevent public abuse.
 5. Click **Save**
@@ -34,7 +34,7 @@ If no email arrives after submitting a quote:
 2. **JWT verification ON?** Re-open the webhook settings and confirm JWT verification is enabled.
 3. **Edge function deployed?** Run:
    ```bash
-   supabase functions deploy send-quote-email --project-ref wjdvveoxxamhdkdwtipf
+   supabase functions deploy send-quote-email --project-ref nyhhufcwdwwhuuwtifdl
    ```
 4. **Resend API key set?** In the Supabase dashboard, go to **Edge Functions → Secrets** and verify `RESEND_API_KEY` is set.
 5. **Check logs:** In the Supabase dashboard, go to **Logs → Edge Functions**, filter by `send-quote-email`, and look for error output.
