@@ -42,6 +42,29 @@ function timingSafeEqual(a: string, b: string): boolean {
   return result === 0;
 }
 
+// Accept either the env-var service-role key (could be sb_secret_ or JWT format)
+// OR a valid service_role JWT. The webhook is configured with a JWT-format key
+// while the runtime env var may hold the new sb_secret_ format, so both must pass.
+function isValidServiceRoleToken(token: string, envKey: string): boolean {
+  if (token.length === 0) return false;
+
+  if (envKey.length > 0 && timingSafeEqual(token, envKey)) return true;
+
+  if (token.startsWith('eyJ')) {
+    const parts = token.split('.');
+    if (parts.length === 3) {
+      try {
+        const payload = JSON.parse(atob(parts[1]));
+        if (payload && payload.role === 'service_role') return true;
+      } catch {
+        return false;
+      }
+    }
+  }
+
+  return false;
+}
+
 Deno.serve(async (req) => {
   // CORS preflight
   if (req.method === 'OPTIONS') {
@@ -69,7 +92,7 @@ Deno.serve(async (req) => {
     }
 
     const token = authHeader.slice(expectedPrefix.length);
-    if (!timingSafeEqual(token, serviceRoleKey)) {
+    if (!isValidServiceRoleToken(token, serviceRoleKey)) {
       return new Response(JSON.stringify({ error: 'unauthorized' }), {
         status: 401,
         headers: { 'Content-Type': 'application/json' },
