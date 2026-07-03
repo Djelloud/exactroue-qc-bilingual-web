@@ -18,8 +18,6 @@ function getServiceLabel(serviceType: string | null | undefined, language: strin
       return isFr ? 'Réparation de roues fissurées' : 'Cracked wheel repair';
     case 'straightening':
       return isFr ? 'Redressement de jantes' : 'Wheel straightening';
-    case 'polish':
-      return isFr ? 'Polissage miroir' : 'Mirror polishing';
     case 'powdercoat':
       return isFr ? 'Powder coat / Peinture cuite' : 'Powder coating';
     case 'paint':
@@ -121,7 +119,7 @@ Deno.serve(async (req) => {
       try {
         const { data, error } = await supabase.storage
           .from('quote-photos')
-          .createSignedUrl(path, 86400);
+          .createSignedUrl(path, 604800);
         if (error) {
           console.error('Signed URL error for path:', path, error);
           photoUrls.push(`(path: ${path})`);
@@ -152,19 +150,116 @@ Deno.serve(async (req) => {
       : 'Aucune photo / No photos';
 
     const html = `
-      <h2>${isFr ? 'Nouvelle demande de devis' : 'New quote request'}</h2>
-      <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;font-family:sans-serif">
-        <tr><td><b>${isFr ? 'Nom' : 'Name'}</b></td><td>${escapeHtml(record.name)}</td></tr>
-        <tr><td><b>Email</b></td><td>${escapeHtml(record.email)}</td></tr>
-        <tr><td><b>${isFr ? 'Téléphone' : 'Phone'}</b></td><td>${escapeHtml(record.phone) || '—'}</td></tr>
-        <tr><td><b>${isFr ? 'Véhicule' : 'Vehicle'}</b></td><td>${escapeHtml(record.vehicle) || '—'}</td></tr>
-        <tr><td><b>${isFr ? 'Dimension' : 'Wheel size'}</b></td><td>${escapeHtml(record.wheel_size) || '—'}</td></tr>
-        <tr><td><b>${isFr ? 'Service' : 'Service'}</b></td><td>${getServiceLabel(record.service_type, record.language)}</td></tr>
-        <tr><td><b>${isFr ? 'Description' : 'Description'}</b></td><td>${escapeHtml(record.description)}</td></tr>
-        <tr><td><b>${isFr ? 'Langue' : 'Language'}</b></td><td>${record.language || '—'}</td></tr>
-      </table>
-      <h3>${isFr ? 'Photos' : 'Photos'}</h3>
-      <div>${photoSection}</div>
+      <div style="max-width:600px;margin:0 auto;font-family:sans-serif;background:#0a0a0a;">
+
+        <!-- Header -->
+        <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-bottom:3px solid #c9a84c;padding:24px;text-align:center;">
+          <div style="font-size:22px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;color:#ffffff;margin-bottom:4px;">
+            EXACT <span style="color:#c9a84c;">WHEEL</span>
+          </div>
+          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-top:8px;">
+            ${isFr ? 'Réparation de roues en alliage — Montréal' : 'Alloy wheel repair — Montreal'}
+          </div>
+        </div>
+
+        <!-- Title -->
+        <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-top:none;padding:24px;">
+          <h2 style="margin:0 0 4px;color:#c9a84c;font-size:18px;text-transform:uppercase;letter-spacing:1px;">
+            ${isFr ? 'Nouvelle demande de devis' : 'New quote request'}
+          </h2>
+          <p style="margin:0;color:#888;font-size:13px;">
+            ${isFr ? 'Reçue le' : 'Received on'} ${new Date().toLocaleString(isFr ? 'fr-CA' : 'en-CA', { dateStyle: 'long', timeStyle: 'short' })}
+          </p>
+        </div>
+
+        <!-- Customer Info -->
+        <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-top:none;padding:0;">
+          <div style="padding:12px 24px;border-bottom:1px solid #2a2a2a;">
+            <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c9a84c;font-weight:bold;">${isFr ? 'Client' : 'Customer'}</span>
+          </div>
+          <table style="width:100%;border-collapse:collapse;font-size:14px;color:#e0e0e0;">
+            <tr>
+              <td style="padding:10px 24px;width:120px;color:#888;">${isFr ? 'Nom' : 'Name'}</td>
+              <td style="padding:10px 24px;font-weight:bold;">${escapeHtml(record.name)}</td>
+            </tr>
+            <tr style="background:#0f0f0f;">
+              <td style="padding:10px 24px;color:#888;">Email</td>
+              <td style="padding:10px 24px;"><a href="mailto:${escapeHtml(record.email)}" style="color:#c9a84c;text-decoration:none;">${escapeHtml(record.email)}</a></td>
+            </tr>
+            <tr>
+              <td style="padding:10px 24px;color:#888;">${isFr ? 'Téléphone' : 'Phone'}</td>
+              <td style="padding:10px 24px;">${escapeHtml(record.phone) || '—'}</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Vehicle & Service -->
+        <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-top:none;padding:0;">
+          <div style="padding:12px 24px;border-bottom:1px solid #2a2a2a;">
+            <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c9a84c;font-weight:bold;">${isFr ? 'Véhicule & Service' : 'Vehicle & Service'}</span>
+          </div>
+          <table style="width:100%;border-collapse:collapse;font-size:14px;color:#e0e0e0;">
+            <tr>
+              <td style="padding:10px 24px;width:120px;color:#888;">${isFr ? 'Véhicule' : 'Vehicle'}</td>
+              <td style="padding:10px 24px;">${escapeHtml(record.vehicle) || '—'}</td>
+            </tr>
+            <tr style="background:#0f0f0f;">
+              <td style="padding:10px 24px;color:#888;">${isFr ? 'Dimension' : 'Wheel size'}</td>
+              <td style="padding:10px 24px;">${escapeHtml(record.wheel_size) || '—'}</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 24px;color:#888;">${isFr ? 'Service' : 'Service'}</td>
+              <td style="padding:10px 24px;">${getServiceLabel(record.service_type, record.language)}</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Description -->
+        <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-top:none;padding:0;">
+          <div style="padding:12px 24px;border-bottom:1px solid #2a2a2a;">
+            <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c9a84c;font-weight:bold;">${isFr ? 'Description' : 'Description'}</span>
+          </div>
+          <div style="padding:16px 24px;font-size:14px;color:#e0e0e0;line-height:1.6;">
+            ${escapeHtml(record.description)}
+          </div>
+        </div>
+
+        <!-- Photos -->
+        <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-top:none;padding:0;">
+          <div style="padding:12px 24px;border-bottom:1px solid #2a2a2a;">
+            <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c9a84c;font-weight:bold;">${isFr ? 'Photos' : 'Photos'}${photoUrls.length > 0 ? ' (' + photoUrls.length + ')' : ''}</span>
+          </div>
+          <div style="padding:16px 24px;">
+            ${photoUrls.length > 0
+              ? photoUrls.map((url, i) => {
+                  if (url.startsWith('http')) {
+                    return `<a href="${url}" style="display:inline-block;margin:0 8px 8px 0;background:#c9a84c;color:#0a0a0a;text-decoration:none;font-size:13px;font-weight:bold;padding:10px 16px;text-transform:uppercase;letter-spacing:1px;">${isFr ? 'Photo' : 'Photo'} ${i + 1}</a>`;
+                  }
+                  return `<span style="display:inline-block;margin:0 8px 8px 0;color:#888;font-size:13px;">${url}</span>`;
+                }).join('')
+              : (isFr ? 'Aucune photo' : 'No photos')
+            }
+            ${photoUrls.length > 0 ? `<p style="margin:12px 0 0;font-size:12px;color:#888;">${isFr ? 'Les liens expirent dans 7 jours.' : 'Links expire in 7 days.'}</p>` : ''}
+          </div>
+        </div>
+
+        <!-- Reply CTA -->
+        <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-top:none;padding:24px;text-align:center;">
+          <a href="mailto:${escapeHtml(record.email)}" style="display:inline-block;background:#c9a84c;color:#0a0a0a;text-decoration:none;font-size:14px;font-weight:bold;padding:14px 32px;text-transform:uppercase;letter-spacing:1px;">
+            ${isFr ? 'Répondre au client' : 'Reply to customer'}
+          </a>
+        </div>
+
+        <!-- Footer -->
+        <div style="padding:20px;text-align:center;">
+          <p style="margin:0;font-size:12px;color:#666;line-height:1.6;">
+            Exact roues inc — 1420 Boul Hymus, Dorval, QC H9P 1J6<br>
+            (514) 683-6999 — exactwheels.com<br>
+            <span style="color:#444;">${isFr ? 'Cet email a été généré automatiquement par le formulaire de devis en ligne.' : 'This email was automatically generated by the online quote form.'}</span>
+          </p>
+        </div>
+
+      </div>
     `;
 
     // Send email via Resend
@@ -178,7 +273,7 @@ Deno.serve(async (req) => {
         'Idempotency-Key': record.id,
       },
       body: JSON.stringify({
-        from: 'onboarding@resend.dev',
+        from: 'info@exactwheels.com',
         to: 'info@exactwheels.com',
         reply_to: record.email,
         subject,
