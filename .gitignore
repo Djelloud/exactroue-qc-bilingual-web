@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Planning & agent working artifacts
+.omo/
+.playwright-mcp/
+supabase/.temp/
+
+# QA screenshots (root-level only)
+/*.png
+
+# Email template preview
+email-preview.html
