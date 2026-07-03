@@ -166,7 +166,6 @@ const Devis = () => {
                 <option value="">{t('devis.f.service.ph')}</option>
                 <option value="repair">{t('services.s1.t')}</option>
                 <option value="straightening">{t('services.s2.t')}</option>
-                <option value="polish">{t('services.s3.t')}</option>
                 <option value="powdercoat">{t('services.s4.t')}</option>
                 <option value="paint">{t('services.s5.t')}</option>
                 <option value="cnc">{t('services.s6.t')}</option>

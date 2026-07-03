@@ -38,8 +38,8 @@ const Contact = () => {
                   <Phone className="h-5 w-5 text-primary mt-0.5" />
                   <div>
                     <p className="font-medium">{t('contact.phone')}</p>
-                    <a href="tel:+15141234567" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                      (514) 123-4567
+                    <a href="tel:+15146836999" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                      (514) 683-6999
                     </a>
                   </div>
                 </div>
@@ -47,8 +47,8 @@ const Contact = () => {
                   <Mail className="h-5 w-5 text-primary mt-0.5" />
                   <div>
                     <p className="font-medium">{t('contact.email')}</p>
-                    <a href="mailto:info@exactroue.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                      info@exactroue.com
+                    <a href="mailto:info@exactwheels.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                      info@exactwheels.com
                     </a>
                   </div>
                 </div>
@@ -57,7 +57,7 @@ const Contact = () => {
                   <div>
                     <p className="font-medium">{t('contact.address')}</p>
                     <p className="text-sm text-muted-foreground">
-                      Montreal, Quebec
+                      1420 Boul Hymus, Dorval, QC H9P 1J6
                     </p>
                   </div>
                 </div>
@@ -66,10 +66,16 @@ const Contact = () => {
                   <div>
                     <p className="font-medium">{t('contact.hours')}</p>
                     <p className="text-sm text-muted-foreground">
-                      {language === 'fr' ? 'Lun-Ven: 8h00-18h00' : 'Mon-Fri: 8AM-6PM'}
+                      {language === 'fr' ? 'Lun–Mer: 8h00–17h00' : 'Mon–Wed: 8AM–5PM'}
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      {language === 'fr' ? 'Sam: 9h00-15h00' : 'Sat: 9AM-3PM'}
+                      {language === 'fr' ? 'Jeu: 8h00–19h00' : 'Thu: 8AM–7PM'}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {language === 'fr' ? 'Ven: 8h00–14h00' : 'Fri: 8AM–2PM'}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {language === 'fr' ? 'Sam–Dim: Fermé' : 'Sat–Sun: Closed'}
                     </p>
                   </div>
                 </div>

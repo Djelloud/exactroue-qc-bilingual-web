@@ -1,7 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import Counter from '@/components/Counter';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Star, ArrowRight, Wrench, Hammer, Sparkles, Paintbrush, Droplet, Cog, ShoppingCart, Truck, MapPin } from 'lucide-react';
+import { Star, ArrowRight, Wrench, Hammer, Paintbrush, Droplet, Cog, Truck, MapPin } from 'lucide-react';
 import hero from '@/assets/hero-wheel-dark.jpg';
 import p1 from '@/assets/old-site/service-slide01.jpg';
 import p2 from '@/assets/old-site/exactwheel01.jpg';
@@ -28,21 +28,19 @@ const Home = () => {
   const services = [
     { icon: Hammer, k: 's1' },
     { icon: Wrench, k: 's2' },
-    { icon: Sparkles, k: 's3' },
     { icon: Paintbrush, k: 's4' },
     { icon: Droplet, k: 's5' },
     { icon: Cog, k: 's6' },
-    { icon: ShoppingCart, k: 's7' },
     { icon: Truck, k: 's8' },
   ];
 
   const testimonials = [
-    { initials: 'MB', q: 'testi.q1', r: 'testi.r1' },
-    { initials: 'SL', q: 'testi.q2', r: 'testi.r2' },
-    { initials: 'AC', q: 'testi.q3', r: 'testi.r3' },
+    { initials: 'G', q: 'testi.q1', r: 'testi.r1' },
+    { initials: 'G', q: 'testi.q2', r: 'testi.r2' },
+    { initials: 'G', q: 'testi.q3', r: 'testi.r3' },
   ];
 
-  const regions = ['Montréal', 'Laval', 'Longueuil', 'Brossard', 'Rive-Sud', 'Rive-Nord'];
+  const regions = ['Montréal', 'Laval', 'RDP', 'Mtl Nord', 'Rive-Sud', 'Châteauguay'];
   const faqs = [1, 2, 3, 4, 5];
 
   return (
@@ -109,7 +107,7 @@ const Home = () => {
             <Eyebrow>{t('services.eyebrow')}</Eyebrow>
             <h2 className="font-display uppercase font-bold text-4xl md:text-5xl">{t('services.title')}</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {services.map(({ icon: Icon, k }, i) => (
               <div
                 key={k}
@@ -174,17 +172,25 @@ const Home = () => {
           <div className="max-w-2xl mb-16 reveal">
             <Eyebrow>{t('testi.eyebrow')}</Eyebrow>
             <h2 className="font-display uppercase font-bold text-4xl md:text-5xl">{t('testi.title')}</h2>
+            <div className="flex items-center gap-2 mt-4">
+              <div className="flex gap-0.5">
+                {Array.from({ length: 5 }).map((_, j) => (
+                  <Star key={j} className="w-4 h-4 fill-gold text-gold" />
+                ))}
+              </div>
+              <span className="text-sm text-muted-foreground">4.4 / Google</span>
+            </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((tt, i) => (
-              <div key={i} className="bg-background border border-border p-8 reveal group hover:border-gold/40 transition-colors" style={{ transitionDelay: `${i * 100}ms` }}>
+              <div key={i} className="bg-background border border-border p-8 reveal group hover:border-gold/40 transition-colors flex flex-col" style={{ transitionDelay: `${i * 100}ms` }}>
                 <div className="flex gap-1 mb-5">
                   {Array.from({ length: 5 }).map((_, j) => (
                     <Star key={j} className="w-4 h-4 fill-gold text-gold" />
                   ))}
                 </div>
                 <p className="text-foreground leading-relaxed mb-8">“{t(tt.q)}”</p>
-                <div className="flex items-center gap-4 pt-6 border-t border-border">
+                <div className="flex items-center gap-4 pt-6 border-t border-border mt-auto">
                   <div className="w-12 h-12 rounded-full bg-gold text-primary-foreground grid place-items-center font-display font-bold">
                     {tt.initials}
                   </div>
@@ -229,10 +235,10 @@ const Home = () => {
                 {[
                   [200, 200, 'Montréal', 8],
                   [140, 150, 'Laval', 5],
-                  [260, 250, 'Longueuil', 5],
-                  [280, 300, 'Brossard', 4],
+                  [240, 170, 'RDP', 4],
+                  [200, 130, 'Mtl Nord', 4],
                   [120, 280, 'Rive-Sud', 4],
-                  [180, 90, 'Rive-Nord', 4],
+                  [80, 320, 'Châteauguay', 4],
                 ].map(([x, y, name, r]: any, i) => (
                   <g key={i}>
                     <circle cx={x} cy={y} r={r} fill="hsl(var(--red))">
